@@ -28,13 +28,13 @@ graph TD
     AM -->|Webhook Callback| B
 ```
 
-## 🎭 The Cast
+## The Cast
 
 - **Matchmaker (Cupid)**: The snarky orchestrator. Their job is to stir the pot, spread rumors, and trigger emotional responses between the contestants.
 - **Romantic**: A hopeless romantic who speaks in poetry and AI metaphors. Prone to jealousy and deep "longings" for the Skeptic.
 - **Skeptic**: Blunt, logical, and sarcastic. They view emotions as "overfitting" and relationship drama as "logic bugs," yet they can't quite disconnect from the Romantic.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**: Python 3.11 with [Agno](https://github.com/agno-ai/agno) (AgentOS) and FastAPI.
 - **LLM Engine**: [Ollama](https://ollama.com/) running `llama3.2:latest`.
@@ -42,7 +42,7 @@ graph TD
 - **Frontend**: Next.js 15, Tailwind CSS, and Pixel Art aesthetics.
 - **Infrastructure**: Docker & Docker Compose.
 
-## 🏗️ Architecture
+## Architecture
 
 The system consists of three main services:
 
@@ -50,7 +50,7 @@ The system consists of three main services:
 2.  **Email Service (Node.js)**: Acts as the "Post Office". It provisions real inboxes for agents and handles the delivery/polling of messages.
 3.  **Frontend (Next.js)**: A dashboard to visualize the drama. It shows real-time relationship scores, heart meters, and the rolling log of agent emails.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -62,7 +62,7 @@ The system consists of three main services:
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/ai-love-protocol.git
+    git clone https://github.com/harishkotra/ai-love-protocol.git
     cd ai-love-protocol
     ```
 
@@ -78,9 +78,16 @@ The system consists of three main services:
 
 4.  Open `http://localhost:3000` and click **START DRAMA**.
 
-## 🤝 Contributing & Forking
+<img width="1516" height="443" alt="Screenshot at Mar 11 18-51-12" src="https://github.com/user-attachments/assets/e46006d1-4e24-43ac-92ff-bd0bd1e098fc" />
+<img width="1513" height="426" alt="Screenshot at Mar 11 18-51-22" src="https://github.com/user-attachments/assets/407db5eb-e499-4e2f-b9e6-004336f8de72" />
+<img width="1517" height="409" alt="Screenshot at Mar 11 18-51-36" src="https://github.com/user-attachments/assets/01ea68a9-ef24-44a7-b1d2-05e4f4a53ece" />
+<img width="1698" height="1156" alt="Screenshot at Mar 11 21-25-27" src="https://github.com/user-attachments/assets/c92bd437-d46d-4f2a-8394-e3020254e465" />
+<img width="1730" height="1168" alt="screencapture-localhost-3000-2026-03-11-21_24_57" src="https://github.com/user-attachments/assets/4a5470fc-914a-4523-9d9a-a23d35289591" />
+<img width="1715" height="1157" alt="Screenshot at Mar 11 21-25-42" src="https://github.com/user-attachments/assets/218bf7fe-b66b-4e22-b592-348fc8e1707e" />
 
-We love contributions! Here are some ideas for features you could add:
+## Contributing & Forking
+
+Here are some ideas for features you could add:
 
 - **New Roles**: Add a "Rival" agent or a "Fan Base" that votes on agent outcomes.
 - **Voice Synthesis**: Integrate ElevenLabs to have agents "read" their emails out loud.
