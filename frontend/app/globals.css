@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-dark: #1a1025;
+  --bg-card: #2a1f3d;
+  --bg-card-hover: #3a2f5d;
+  --pink-glow: #ff6b9d;
+  --pink-soft: #ffb3d0;
+  --purple-glow: #a855f7;
+  --purple-soft: #dcd0ff;
+  --blue-glow: #60a5fa;
+  --green-glow: #4ade80;
+  --yellow-glow: #facc15;
+  --text-primary: #f8f0ff;
+  --text-muted: #a89cc8;
+  --border-glow: rgba(168, 85, 247, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 107, 157, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
+  color: var(--text-primary);
+  font-family: 'Press Start 2P', monospace;
+  line-height: 2;
+  font-size: 12px;
+  min-height: 100vh;
+}
+
+/* ─── Pixel card ─── */
+.pixel-card {
+  background: var(--bg-card);
+  border: 3px solid var(--border-glow);
+  border-radius: 4px;
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.pixel-card:hover {
+  border-color: var(--purple-glow);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
+}
+
+/* ─── Start Drama Button ─── */
+.drama-btn {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.5rem;
+  color: #000;
+  background: linear-gradient(180deg, #4ade80 0%, #22c55e 100%);
+  border: 4px solid #000;
+  border-radius: 4px;
+  box-shadow:
+    6px 6px 0 #000,
+    0 0 30px rgba(74, 222, 128, 0.3);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.drama-btn:hover {
+  background: linear-gradient(180deg, #86efac 0%, #4ade80 100%);
+  box-shadow:
+    6px 6px 0 #000,
+    0 0 50px rgba(74, 222, 128, 0.5);
+}
+
+.drama-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* ─── Section headers ─── */
+.section-title {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(90deg, var(--pink-glow), var(--purple-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Hearts ─── */
+.hearts-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+}
+
+/* ─── Stat row ─── */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* ─── Layout grid ─── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .drama-btn {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* ─── Inbox ─── */
+.inbox-wrapper {
+  max-height: 450px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple-glow) var(--bg-card);
+}
+
+.inbox-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.inbox-wrapper::-webkit-scrollbar-thumb {
+  background: var(--purple-glow);
+  border-radius: 3px;
+}
+
+.inbox-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-card);
+}
+
+/* ─── Chat bubble ─── */
+.chat-bubble {
+  background: rgba(168, 85, 247, 0.08);
+  border: 2px solid var(--border-glow);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  flex: 1;
+  transition: background 0.2s;
+}
+
+.chat-bubble:hover {
+  background: rgba(168, 85, 247, 0.15);
+}
+
+.chat-bubble.romantic {
+  border-color: rgba(255, 107, 157, 0.4);
+  background: rgba(255, 107, 157, 0.08);
+}
+
+.chat-bubble.romantic:hover {
+  background: rgba(255, 107, 157, 0.15);
+}
+
+.chat-bubble.matchmaker {
+  border-color: rgba(250, 204, 21, 0.4);
+  background: rgba(250, 204, 21, 0.08);
+}
+
+.chat-bubble.matchmaker:hover {
+  background: rgba(250, 204, 21, 0.15);
+}
+
+.avatar-box {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 2px solid var(--border-glow);
+  border-radius: 4px;
+  background: var(--bg-card);
+}
+
+/* ─── Animations ─── */
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.heart-beat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ─── Score bar ─── */
+.score-bar-track {
+  width: 100%;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--border-glow);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-glow), var(--purple-glow));
+  transition: width 0.6s ease;
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+}
+
+/* ─── Status badge ─── */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  border: 1px solid;
+}
+
+.status-badge.love {
+  color: var(--pink-glow);
+  border-color: var(--pink-glow);
+  background: rgba(255, 107, 157, 0.1);
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.2);
+}
+
+.status-badge.complicated {
+  color: var(--yellow-glow);
+  border-color: var(--yellow-glow);
+  background: rgba(250, 204, 21, 0.1);
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
+}
+
+.status-badge.dating {
+  color: var(--purple-glow);
+  border-color: var(--purple-glow);
+  background: rgba(168, 85, 247, 0.1);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}

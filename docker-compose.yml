@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  backend-python:
+    build:
+      context: ./backend-python
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    volumes:
+      - ./backend-python:/app
+
+  email-service:
+    build:
+      context: ./email-service
+    ports:
+      - "4000:4000"
+    environment:
+      - AGENTMAIL_API_KEY=${AGENTMAIL_API_KEY}
+      - PYTHON_BACKEND_URL=http://backend-python:8000
+    volumes:
+      - ./email-service:/app
+      - /app/node_modules
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_PYTHON_BACKEND_URL=http://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
